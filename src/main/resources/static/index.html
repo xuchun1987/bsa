@@ -6,23 +6,19 @@
 </head>
 
 <body>
-
-
-<div id="example-1">
-    <button v-on:click="counter += 1">增加 1</button>
-    <p>这个按钮被点击了 {{ counter }} 次。</p>
-</div>
-
+<child message="hello!"></child>
 
 
 </body>
 <script src="/webjars/vue/vue.js"></script>
 <script>
-    var example1 = new Vue({
-        el: '#example-1',
-        data: {
-            counter: 0
-        }
+    alert('d');
+    Vue.component('child', {
+        // 声明 props
+        props: ['message'],
+        // 就像 data 一样，prop 可以用在模板内
+        // 同样也可以在 vm 实例中像“this.message”这样使用
+        template: '<span>{{ message }}</span>'
     })
 </script>
 </html>
